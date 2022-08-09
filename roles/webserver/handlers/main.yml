@@ -1,0 +1,4 @@
+- name: start_httpd_server
+  systemd:
+    name: httpd
+    state: started

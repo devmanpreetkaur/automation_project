@@ -1,0 +1,16 @@
+- name: changes in /etc/profile directory
+  block:
+    - name:  ssh timeout 
+      blockinfile: 
+        path: /etc/profile  
+        insertafter: EOF 
+        backup: yes
+        state: present
+        block: |    
+          export TMOUT=900 
+    - name: setting umask 
+      lineinfile:
+        path: /etc/profile 
+        regex: "^umask"
+        line: "umask 0077"
+        state: present
